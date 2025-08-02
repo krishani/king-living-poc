@@ -1,4 +1,4 @@
-export type Region = "AU" | "APAC" | "UK";
+export type Region = "US" | "APAC" | "UK";
 
 export interface Order {
   orderId: string;
@@ -14,10 +14,10 @@ export interface OrderDetails extends Order {
     quantity: number;
     shippingMethod: string;
   };
-  customerDetails: {
+  customerDetails?: {
     name: string;
     email: string;
-    phone: string;
-    address: string;
+    phone?: string;
+    address?: string;
   };
 }

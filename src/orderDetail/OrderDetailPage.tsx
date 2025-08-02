@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import type { OrderDetails } from "../types/orders";
 import { OrderDetail } from "./OrderDetail";
 import { CircularProgress } from '@mui/material';
+import '../common/style.css';
 
 export const OrderDetailPage = () => {
     const params = useParams();
@@ -29,6 +30,7 @@ export const OrderDetailPage = () => {
 
     return (
         <div>
+            <h1 className={'heading'}>Order Details</h1>
             {loading && <CircularProgress />}
             {orderInfo && <OrderDetail {...orderInfo} />}
         </div>

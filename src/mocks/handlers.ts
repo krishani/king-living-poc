@@ -3,13 +3,13 @@ import { faker } from "@faker-js/faker";
 import type { Order, Region, OrderDetails } from "../types/orders";
 
 const regionCurrencyMap: Record<Region, string> = {
-  AU: "AUD",
+  US: "USD",
   APAC: "SGD",
   UK: "GBP",
 };
 
 const orders: Order[] = Array.from({ length: 30 }).map(() => {
-  const countryCode = faker.helpers.arrayElement<Region>(["AU", "APAC", "UK"]);
+  const countryCode = faker.helpers.arrayElement<Region>(["US", "APAC", "UK"]);
   return {
     orderId: faker.string.uuid(),
     orderDate: faker.date.recent({ days: 30 }).toISOString(),

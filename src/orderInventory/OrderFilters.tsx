@@ -41,7 +41,7 @@ export const OrderFilters = ({
                     }}
                 >
                     <MenuItem value={'ALL'}>All Regions</MenuItem>
-                    <MenuItem value={'AU'}>Australia</MenuItem>
+                    <MenuItem value={'US'}>United States</MenuItem>
                     <MenuItem value={'UK'}>England</MenuItem>
                     <MenuItem value={'APAC'}>Singapore</MenuItem>
                 </Select>

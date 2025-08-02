@@ -5,6 +5,7 @@ import { OrderFilters } from "./OrderFilters";
 import { CircularProgress } from "@mui/material";
 import { OrderStats } from "./OrderStats";
 import { ErrorPrompt } from "../common/ErrorPrompt";
+import '../common/style.css';
 
 export const OrderTablePage = () => {
     const [orders, setOrders] = useState<Order[]>();
@@ -50,7 +51,7 @@ export const OrderTablePage = () => {
 
 
     return (
-        <>
+        <div>
             <h1 className={'heading'}>King Living Internal Dashboard</h1>
             {
                 loading && <CircularProgress />
@@ -66,6 +67,6 @@ export const OrderTablePage = () => {
                 </div>
             }
             <OrderTable orders={orders || []} />
-        </>
+        </div>
     )
 }

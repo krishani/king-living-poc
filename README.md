@@ -117,3 +117,11 @@ Add unit tests to OrderTablePage
 I need to show statistics from order table such as total number of sales and orderCount.
 matrial Ui
 ```
+
+```
+Add unit tests for OrderTablePage
+```
+
+```
+I need to add unit test setup for vite react+ typescript app. Can you please provide the jest config and packages to add
+```
