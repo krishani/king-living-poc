@@ -48,8 +48,6 @@ export const OrderTablePage = () => {
         fetchOrders('ALL');
     }, []);
 
-
-
     return (
         <div>
             <div className="header-container">

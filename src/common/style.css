@@ -74,7 +74,7 @@ h6 {
     margin: auto;
     padding: 2rem;
     margin-top: 3rem;
-    background-color: #ab7d7dff;
+    background-color: #ab7d7dff !important;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
@@ -115,7 +115,7 @@ h6 {
     width: 72%;
     margin: 0 auto;
     padding: 1rem;
-    background-color: #ab7d7dff;
+    background-color: #ab7d7dff !important;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
@@ -126,18 +126,34 @@ h6 {
     background-color: #ab7d7dff;
 }
 
+.data-grid .MuiDataGrid-row {
+    cursor: default;
+}
+
+.data-grid .MuiDataGrid-row.Mui-selected,
+
 .data-grid .MuiDataGrid-columnHeaders {
     color: #ffffff;
-    background-color: #ab7d7dff;
+    background-color: #ab7d7dff !important;
     font-size: 1rem;
     font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .data-grid .MuiDataGrid-columnHeader {
-    background-color: #ab7d7dff;
+    background-color: #ab7d7dff !important;
 }
 
 .data-grid .MuiDataGrid-columnHeaderTitle {
+    color: #000000 !important;
+    font-family: 'Raleway', sans-serif;
+}
+
+.data-grid .MuiDataGrid-iconButtonContainer {
+    color: #ffffff;
+}
+
+.data-grid .MuiDataGrid-sortIcon {
     color: #ffffff;
 }
 
@@ -150,7 +166,7 @@ h6 {
 }
 
 .data-grid .MuiDataGrid-cell {
-    color: #ffffff;
+    color: #000000;
 }
 
 .data-grid .MuiTablePagination-root,
