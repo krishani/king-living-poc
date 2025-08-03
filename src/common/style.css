@@ -6,7 +6,12 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Raleway', sans-serif;
 }
 
@@ -60,4 +65,105 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     font-family: 'Raleway', sans-serif;
     opacity: 0.9;
+}
+
+/* Order Detail Styles */
+.order-detail-paper {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    margin-top: 3rem;
+    background-color: #ab7d7dff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.order-detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #ab7d7dff;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.order-detail-field {
+    width: 100%;
+}
+
+.order-detail-field .MuiInputBase-input {
+    color: #ffffff !important;
+}
+
+.order-detail-field .MuiInputLabel-root {
+    color: #ffffff !important;
+}
+
+.order-detail-field .MuiOutlinedInput-notchedOutline {
+    border-color: #ffffff !important;
+}
+
+/* DataGrid Table Styles */
+.table-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-paper {
+    width: 72%;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #ab7d7dff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.data-grid {
+    border: 0;
+    color: #ffffff;
+    background-color: #ab7d7dff;
+}
+
+.data-grid .MuiDataGrid-columnHeaders {
+    color: #ffffff;
+    background-color: #ab7d7dff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.data-grid .MuiDataGrid-columnHeader {
+    background-color: #ab7d7dff;
+}
+
+.data-grid .MuiDataGrid-columnHeaderTitle {
+    color: #ffffff;
+}
+
+.data-grid .MuiDataGrid-row:nth-of-type(even) {
+    background-color: #815050ff;
+}
+
+.data-grid .MuiDataGrid-row:nth-of-type(odd) {
+    background-color: #ab7d7dff;
+}
+
+.data-grid .MuiDataGrid-cell {
+    color: #ffffff;
+}
+
+.data-grid .MuiTablePagination-root,
+.data-grid .MuiTablePagination-selectLabel,
+.data-grid .MuiTablePagination-displayedRows,
+.data-grid .MuiTablePagination-select {
+    color: #ffffff;
+}
+
+.data-grid .MuiIconButton-root {
+    color: #ffffff;
+}
+
+.data-grid .MuiDataGrid-footerContainer {
+    background-color: #ab7d7dff;
 }

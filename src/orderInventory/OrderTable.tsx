@@ -33,82 +33,22 @@ const columns: GridColDef[] = [
 const paginationModel = { page: 0, pageSize: 10 };
 
 export const OrderTable = ({ orders }: { orders: Order[] }) => {
-    const mappedOrders = orders.map((order, index) => {
-        return {
-            ...order,
-            id: index
-        }
-    })
+    const mappedOrders = orders.map((order, index) => ({
+        ...order,
+        id: index
+    }));
+
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}
-        >
-            <Paper
-                sx={{
-                    width: '90%',
-                    maxWidth: 1200,
-                    margin: '0 auto',
-                    p: 2,
-                    bgcolor: '#ab7d7dff',
-                    boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)',
-                    borderRadius: 2,
-                }}
-            >
+        <Box className="table-container">
+            <Paper className="table-paper">
                 <DataGrid
                     rows={mappedOrders}
                     columns={columns}
                     initialState={{ pagination: { paginationModel } }}
                     pageSizeOptions={[5, 10]}
-                    sx={{
-                        border: 0,
-                        color: '#ffffff',
-                        backgroundColor: '#ab7d7dff',
-                        '& .MuiDataGrid-columnHeaders': {
-                            color: '#ffffff',
-                            backgroundColor: '#ab7d7dff',
-                            fontSize: '1rem',
-                            fontWeight: 'bold'
-                        },
-                        '& .MuiDataGrid-columnHeader': {  // Add this to style individual column headers
-                            backgroundColor: '#ab7d7dff',
-                        },
-                        '& .MuiDataGrid-columnHeaderTitle': {  // Add this to style header titles
-                            color: '#ffffff',
-                        },
-                        '& .MuiDataGrid-row:nth-of-type(even)': {
-                            backgroundColor: '#815050ff',
-                        },
-                        '& .MuiTablePagination-selectLabel': {
-                            color: '#ffffff',
-                        },
-                        '& .MuiTablePagination-displayedRows': {
-                            color: '#ffffff',
-                        },
-                        '& .MuiTablePagination-select': {
-                            color: '#ffffff',
-                        },
-                        '& .MuiDataGrid-row:nth-of-type(odd)': {
-                            backgroundColor: '#ab7d7dff',
-                        },
-                        '& .MuiDataGrid-cell': {
-                            color: '#ffffff',
-                        },
-                        '& .MuiTablePagination-root': {
-                            color: '#ffffff',
-                        },
-                        '& .MuiIconButton-root': {
-                            color: '#ffffff',
-                        },
-                        '& .MuiDataGrid-footerContainer': {
-                            backgroundColor: '#ab7d7dff',
-                        }
-                    }}
+                    className="data-grid"
                 />
             </Paper>
         </Box>
-    )
+    );
 }
