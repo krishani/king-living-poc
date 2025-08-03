@@ -5,6 +5,7 @@ import '@testing-library/jest-dom';
 // Mock MUI CircularProgress (optional if it causes issues)
 jest.mock('@mui/material', () => ({
     CircularProgress: () => <div data-testid="loader">Loading...</div>,
+    Box: ({ children, ...props }: any) => <div data-testid="mui-box" {...props}>{children}</div>
 }));
 
 // Mock children components to focus test on fetch + rendering logic

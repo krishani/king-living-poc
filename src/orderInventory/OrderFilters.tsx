@@ -47,7 +47,7 @@ export const OrderFilters = ({
                     alignItems="center"
                     flexDirection="row"
                 >
-                    <FormControl sx={{ minWidth: 120 }}>
+                    <FormControl>
                         <InputLabel id="region-select-label">Region</InputLabel>
                         <Select
                             labelId="region-select-label"

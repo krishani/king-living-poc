@@ -65,6 +65,8 @@ fromDate
 toDate
 ```
 
+- Added a dummy function for currency conversion.
+
 ## Setup and Installation
 
 ### Prerequisites
