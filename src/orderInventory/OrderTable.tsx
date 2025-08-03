@@ -2,12 +2,12 @@ import type { Order } from "../types/orders";
 import { DataGrid } from '@mui/x-data-grid';
 import type { GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
-import { Link } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 
 const columns: GridColDef[] = [
-    { field: 'orderDate', headerName: 'Order Date', width: 250 },
-    { field: 'amount', headerName: 'Amount', width: 130 },
+    { field: 'orderDate', headerName: 'Order Date', width: 300 },
+    { field: 'amount', headerName: 'Amount', width: 150 },
     { field: 'currency', headerName: 'Currency', width: 130 },
     { field: 'countryCode', headerName: 'Country', width: 200 },
     {
@@ -40,13 +40,14 @@ export const OrderTable = ({ orders }: { orders: Order[] }) => {
         }
     })
     return (
-        <div
-            style={{
+        <Box
+            sx={{
                 display: 'flex',
-                paddingTop: '40px',
+                alignItems: 'center',
+                justifyContent: 'center',
             }}
         >
-            <Paper sx={{ height: '100%', width: '75%' }}>
+            <Paper sx={{ width: '90%', maxWidth: 1200, margin: '0 auto', p: 2 }}>
                 <DataGrid
                     rows={mappedOrders}
                     columns={columns}
@@ -55,6 +56,6 @@ export const OrderTable = ({ orders }: { orders: Order[] }) => {
                     sx={{ border: 0 }}
                 />
             </Paper>
-        </div>
+        </Box>
     )
 }

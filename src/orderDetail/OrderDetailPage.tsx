@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { OrderDetails } from "../types/orders";
 import { OrderDetail } from "./OrderDetail";
-import { CircularProgress } from '@mui/material';
+import { Box, Button, CircularProgress } from '@mui/material';
 import '../common/style.css';
+import { useNavigate } from 'react-router-dom';
 
 export const OrderDetailPage = () => {
     const params = useParams();
     const [orderInfo, setOrderInfo] = useState<OrderDetails>();
     const [loading, setLoading] = useState<Boolean>();
+    const navigate = useNavigate();
 
     const fetchOrderDetails = async (): Promise<void> => {
         setLoading(true);
@@ -33,6 +35,18 @@ export const OrderDetailPage = () => {
             <h1 className={'heading'}>Order Details</h1>
             {loading && <CircularProgress />}
             {orderInfo && <OrderDetail {...orderInfo} />}
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    mb: 2,
+                    mt: 4
+                }}
+            >
+                <Button variant="outlined" onClick={() => navigate('/')}>
+                    Back
+                </Button>
+            </Box>
         </div>
     )
 }

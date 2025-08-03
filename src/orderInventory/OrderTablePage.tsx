@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Order, Region } from "../types/orders";
 import { OrderTable } from "./OrderTable";
 import { OrderFilters } from "./OrderFilters";
-import { CircularProgress } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import { OrderStats } from "./OrderStats";
 import { ErrorPrompt } from "../common/ErrorPrompt";
 import '../common/style.css';
@@ -61,10 +61,17 @@ export const OrderTablePage = () => {
 
             }
             {orders?.length &&
-                <div>
+                <Box
+                    display="flex"
+                    flexDirection="row"
+                    alignItems="center"
+                    justifyContent="center"
+                    mb={5}
+                    gap={4}
+                >
                     <OrderStats orders={orders || []} />
                     <OrderFilters filterByCountry={filterOrdersByCountry} filterByDate={filterOrdersByDate} />
-                </div>
+                </Box>
             }
             <OrderTable orders={orders || []} />
         </div>

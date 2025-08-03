@@ -25,27 +25,12 @@ export const OrderFilters = ({
 
     return (
         <Box
-            mb={2}
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            mb={4}
+            gap={4}
         >
-            <FormControl sx={{ m: 1, minWidth: 120 }} >
-                <InputLabel id="demo-simple-select-label">Region</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={country}
-                    label="region"
-                    onChange={(event) => {
-                        const newCountry = event.target.value as Region | 'ALL';
-                        setCountry(newCountry);
-                        filterByCountry(newCountry);
-                    }}
-                >
-                    <MenuItem value={'ALL'}>All Regions</MenuItem>
-                    <MenuItem value={'US'}>United States</MenuItem>
-                    <MenuItem value={'UK'}>England</MenuItem>
-                    <MenuItem value={'APAC'}>Singapore</MenuItem>
-                </Select>
-            </FormControl>
             <FormControl>
                 <div
                     style={{
@@ -76,7 +61,7 @@ export const OrderFilters = ({
                                 slotProps={{ textField: { size: 'small' } }}
                             />
                         </FormControl>
-                        <FormControl> <Button variant="contained" sx={{ height: '40px' }} onClick={() => {
+                        <FormControl> <Button variant="contained" sx={{ height: '40px', m: 1 }} onClick={() => {
                             filterByDate(fromDate, toDate);
                         }}>
                             Apply
@@ -85,6 +70,25 @@ export const OrderFilters = ({
 
                     </LocalizationProvider>
                 </div>
+            </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 120 }} >
+                <InputLabel id="demo-simple-select-label">Region</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={country}
+                    label="region"
+                    onChange={(event) => {
+                        const newCountry = event.target.value as Region | 'ALL';
+                        setCountry(newCountry);
+                        filterByCountry(newCountry);
+                    }}
+                >
+                    <MenuItem value={'ALL'}>All Regions</MenuItem>
+                    <MenuItem value={'US'}>United States</MenuItem>
+                    <MenuItem value={'UK'}>England</MenuItem>
+                    <MenuItem value={'APAC'}>Singapore</MenuItem>
+                </Select>
             </FormControl>
         </Box >
     );
