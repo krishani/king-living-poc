@@ -14,11 +14,11 @@ export const OrderStats = ({ orders }: { orders: Order[] }) => {
     return (
         <Box>
             <Grid container spacing={2}>
-                <Grid item xs={6}>
-                    <Paper 
-                        elevation={3} 
-                        sx={{ 
-                            padding: 4, 
+                <Grid>
+                    <Paper
+                        elevation={3}
+                        sx={{
+                            padding: 4,
                             textAlign: 'center',
                             backgroundColor: 'hwb(0 57% 24%)',
                             color: '#ffffff'
@@ -32,11 +32,11 @@ export const OrderStats = ({ orders }: { orders: Order[] }) => {
                         </Typography>
                     </Paper>
                 </Grid>
-                <Grid item xs={6}>
-                    <Paper 
-                        elevation={3} 
-                        sx={{ 
-                            padding: 4, 
+                <Grid>
+                    <Paper
+                        elevation={3}
+                        sx={{
+                            padding: 4,
                             textAlign: 'center',
                             backgroundColor: 'hwb(0 57% 24%)',
                             color: '#ffffff'
