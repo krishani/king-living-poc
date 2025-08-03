@@ -6,14 +6,14 @@ import { Box, Link } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 
 const columns: GridColDef[] = [
-    { field: 'orderDate', headerName: 'Order Date', width: 300 },
-    { field: 'amount', headerName: 'Amount', width: 150 },
-    { field: 'currency', headerName: 'Currency', width: 130 },
-    { field: 'countryCode', headerName: 'Country', width: 200 },
+    { field: 'orderDate', headerName: 'Order Date', flex: 1 },
+    { field: 'amount', headerName: 'Amount', flex: 1 },
+    { field: 'currency', headerName: 'Currency', flex: 1 },
+    { field: 'countryCode', headerName: 'Country', flex: 1 },
     {
         field: 'view',
         headerName: 'Details',
-        width: 250,
+        flex: 1,
         sortable: false,
         filterable: false,
         renderCell: (params) => {
@@ -30,7 +30,7 @@ const columns: GridColDef[] = [
     },
 ];
 
-const paginationModel = { page: 0, pageSize: 5 };
+const paginationModel = { page: 0, pageSize: 10 };
 
 export const OrderTable = ({ orders }: { orders: Order[] }) => {
     const mappedOrders = orders.map((order, index) => {
@@ -47,13 +47,66 @@ export const OrderTable = ({ orders }: { orders: Order[] }) => {
                 justifyContent: 'center',
             }}
         >
-            <Paper sx={{ width: '90%', maxWidth: 1200, margin: '0 auto', p: 2 }}>
+            <Paper
+                sx={{
+                    width: '90%',
+                    maxWidth: 1200,
+                    margin: '0 auto',
+                    p: 2,
+                    bgcolor: '#ab7d7dff',
+                    boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)',
+                    borderRadius: 2,
+                }}
+            >
                 <DataGrid
                     rows={mappedOrders}
                     columns={columns}
                     initialState={{ pagination: { paginationModel } }}
                     pageSizeOptions={[5, 10]}
-                    sx={{ border: 0 }}
+                    sx={{
+                        border: 0,
+                        color: '#ffffff',
+                        backgroundColor: '#ab7d7dff',
+                        '& .MuiDataGrid-columnHeaders': {
+                            color: '#ffffff',
+                            backgroundColor: '#ab7d7dff',
+                            fontSize: '1rem',
+                            fontWeight: 'bold'
+                        },
+                        '& .MuiDataGrid-columnHeader': {  // Add this to style individual column headers
+                            backgroundColor: '#ab7d7dff',
+                        },
+                        '& .MuiDataGrid-columnHeaderTitle': {  // Add this to style header titles
+                            color: '#ffffff',
+                        },
+                        '& .MuiDataGrid-row:nth-of-type(even)': {
+                            backgroundColor: '#815050ff',
+                        },
+                        '& .MuiTablePagination-selectLabel': {
+                            color: '#ffffff',
+                        },
+                        '& .MuiTablePagination-displayedRows': {
+                            color: '#ffffff',
+                        },
+                        '& .MuiTablePagination-select': {
+                            color: '#ffffff',
+                        },
+                        '& .MuiDataGrid-row:nth-of-type(odd)': {
+                            backgroundColor: '#ab7d7dff',
+                        },
+                        '& .MuiDataGrid-cell': {
+                            color: '#ffffff',
+                        },
+                        '& .MuiTablePagination-root': {
+                            color: '#ffffff',
+                        },
+                        '& .MuiIconButton-root': {
+                            color: '#ffffff',
+                        },
+                        '& .MuiDataGrid-footerContainer': {
+                            backgroundColor: '#ab7d7dff',
+                        }
+                    }}
                 />
             </Paper>
         </Box>

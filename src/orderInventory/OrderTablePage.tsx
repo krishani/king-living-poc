@@ -52,28 +52,32 @@ export const OrderTablePage = () => {
 
     return (
         <div>
-            <h1 className={'heading'}>King Living Internal Dashboard</h1>
-            {
-                loading && <CircularProgress />
-            }
-            {
-                error && <ErrorPrompt open={error} handleClose={handleClose} />
+            <div className="header-container">
+                <div className="header-content">
+                    <img src="/src/king-logo.webp" alt="King Living Logo" className="header-logo" />
+                    <h1 className="header-text">King Living</h1>
+                    <h2 className="subheader-text">Admin Dashboard</h2>
+                </div>
+            </div>
 
-            }
-            {orders?.length &&
+            <Box sx={{ mt: 4, px: 2 }}> {/* Added container with margin top */}
+                {loading && <CircularProgress />}
+                {error && <ErrorPrompt open={error} handleClose={handleClose} />}
+
                 <Box
                     display="flex"
                     flexDirection="row"
                     alignItems="center"
                     justifyContent="center"
-                    mb={5}
                     gap={4}
+                    mb={4} /* Added margin bottom */
                 >
                     <OrderStats orders={orders || []} />
                     <OrderFilters filterByCountry={filterOrdersByCountry} filterByDate={filterOrdersByDate} />
                 </Box>
-            }
-            <OrderTable orders={orders || []} />
+
+                <OrderTable orders={orders || []} />
+            </Box>
         </div>
     )
 }

@@ -32,20 +32,30 @@ export const OrderDetailPage = () => {
 
     return (
         <div>
-            <h1 className={'heading'}>Order Details</h1>
-            {loading && <CircularProgress />}
-            {orderInfo && <OrderDetail {...orderInfo} />}
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    mb: 2,
-                    mt: 4
-                }}
-            >
-                <Button variant="outlined" onClick={() => navigate('/')}>
-                    Back
-                </Button>
+            <Box sx={{ mt: 4, px: 2 }}>
+                {loading && <CircularProgress />}
+                {orderInfo && <OrderDetail {...orderInfo} />}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        mb: 2,
+                        mt: 4
+                    }}
+                >
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate('/')}
+                        sx={{
+                            backgroundColor: '#815050ff',
+                            '&:hover': {
+                                backgroundColor: '#ffffff'
+                            }
+                        }}
+                    >
+                        Back to orders
+                    </Button>
+                </Box>
             </Box>
         </div>
     )

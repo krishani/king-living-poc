@@ -1,4 +1,4 @@
-export type Region = "US" | "APAC" | "UK";
+export type Region = "US" | "APAC" | "UK" ;
 
 export interface Order {
   orderId: string;

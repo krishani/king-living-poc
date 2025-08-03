@@ -3,8 +3,8 @@ import { faker } from "@faker-js/faker";
 import type { Order, Region, OrderDetails } from "../types/orders";
 
 const regionCurrencyMap: Record<Region, string> = {
-  US: "USD",
   APAC: "SGD",
+  US: "USD",
   UK: "GBP",
 };
 

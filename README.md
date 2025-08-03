@@ -1,72 +1,124 @@
-# React + TypeScript + Vite
+# King Living POC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Technical Design Decisions
 
-Currently, two official plugins are available:
+### Frontend Focus
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Priority was given to frontend implementation
+- Emphasis on user interface and experience
 
-## Expanding the ESLint configuration
+### TypeScript Implementation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Used TypeScript for better code readability
+- Enhanced maintainability through static typing
+- Type safety for data structures like Order interface
 
-```js
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+### Mock Data Strategy
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Utilized FakerJS for generating mock order data
+- Implemented MSW (Mock Service Worker) for API simulation
+- Created endpoints for orders and order details
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+### Architecture Pattern
+
+- Adopted Container-Presentational pattern
+- Separated UI logic from business logic
+- Clear separation of concerns in component structure
+
+### UI Framework (Material UI)
+
+Implemented features including:
+
+- Readonly forms
+- Date pickers
+- Statistics display
+- Data tables
+
+### Testing Approach
+
+- Implemented unit tests
+- Set up Jest configuration
+- Added test setup for Vite React + TypeScript
+
+---
+
+## Assumptions
+
+- Asumed Order Data would take below format.
+
+```
+export interface Order {
+  orderId: string;
+  orderDate: string;
+  amount: number;
+  currency: string;
+  countryCode: Region;
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- /api/orders endpoint will return order details for all 3 regions.
+- These query params can be used to filter orders by country and orderDate.
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
 ```
+countryCode
+fromDate
+toDate
+```
+
+## Setup and Installation
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn package manager
+
+### Installation Steps
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/krishani/king-living-poc.git
+cd king-living-poc
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Start the development server
+
+```bash
+npm run dev
+```
+
+4. Run tests
+
+```bash
+npm test
+```
+
+### Available Scripts
+
+- `npm run dev` - Starts the development server
+- `npm run test` - Runs unit tests
+
+### Environment Setup
+
+The application uses MSW (Mock Service Worker) for API mocking. On first run, it will:
+
+1. Register the service worker
+2. Set up mock API endpoints
+3. Generate fake data using FakerJS
+
+### Port Configuration
+
+The development server runs on:
+
+- Default: http://localhost:5173
+
+## AI Prompts
 
 ```
 Create a mock API with fakerJs. one endpoint should return all orders, with order having fields orderId, orderDate, amount, currency, countryCode
@@ -125,3 +177,57 @@ Add unit tests for OrderTablePage
 ```
 I need to add unit test setup for vite react+ typescript app. Can you please provide the jest config and packages to add
 ```
+
+## Development Process with AI Assistance
+
+### Benefits
+
+- **Rapid Prototyping**
+
+  - Quick setup of mock API using FakerJS
+  - Efficient implementation of Material UI components
+  - Fast configuration of Jest testing environment
+
+- **Problem Solving**
+
+  - Resolved MSW Service Worker registration issues
+  - Fixed TypeScript configuration errors
+  - Debugged test setup for Vite React
+
+- **Code Quality**
+  - Improved component structure suggestions
+  - Enhanced type safety implementations
+  - Better testing coverage guidance
+
+### Development Timeline
+
+1. **Initial Setup**
+
+   - AI assisted with project scaffolding
+   - Quick implementation of mock API endpoints
+   - Efficient TypeScript configuration
+
+2. **UI Development**
+
+   - Rapid Material UI component integration
+   - Streamlined styling and theming
+   - Enhanced form validations
+
+3. **Testing Implementation**
+   - Automated test setup configuration
+   - Comprehensive test coverage planning
+   - Quick resolution of testing issues
+
+### Challenges Overcome
+
+- MSW configuration complexities
+- TypeScript type definitions
+- Jest setup with Vite
+- Component styling optimization
+
+### Learning Outcomes
+
+- Better understanding of MSW implementation
+- Improved TypeScript best practices
+- Enhanced testing strategies
+- Efficient Material UI usage
